@@ -1,0 +1,27 @@
+{
+  "name": "id-comicapi",
+  "version": "1.0.0",
+  "description": "Indonesian Comic API",
+  "homepage": "https://github.com/BloodLetters/ID-ComicAPI#readme",
+  "bugs": {
+    "url": "https://github.com/BloodLetters/ID-ComicAPI/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BloodLetters/ID-ComicAPI.git"
+  },
+  "license": "ISC",
+  "author": "BloodLetters",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "cheerio": "^1.0.0",
+    "cors": "^2.8.5",
+    "domparser": "^0.1.1",
+    "express": "^4.21.2"
+  }
+}
