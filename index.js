@@ -3,7 +3,7 @@ const cors = require('cors');
 const routes = require("./routes/komikuRoutes");
 
 const app = express();
-app.use(cors);
+// app.use(cors);
 const port = 3000;
 
 app.use(express.json());
