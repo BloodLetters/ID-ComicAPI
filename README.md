@@ -59,7 +59,3 @@ GET /api/komiku/ping
 
 ## Catatan
 Proyek ini dibuat hanya untuk keperluan testing dan edukasi, tidak untuk produksi.
-
----
-
-Semoga README yang telah diubah ini lebih menarik dan informatif!
