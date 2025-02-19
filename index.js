@@ -6,7 +6,7 @@ const komikuRoutes = require("./routes/komikuRoutes");
 const mangadexRoutes = require("./routes/mangadexRoutes");
 
 const app = express();
-// app.use(cors);
+app.use(cors());
 
 app.use(express.json());
 app.use("/api", [komikuRoutes, mangadexRoutes]);
