@@ -37,3 +37,6 @@ Indonesian comic rest APi
 > ```
 > /api/komiku/ping
 > ```
+
+# Notes
+This is for testing and education only not for production. this project i made for learning about **Web-Scrapping** and how it works.
