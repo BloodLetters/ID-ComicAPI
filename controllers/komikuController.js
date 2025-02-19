@@ -1,4 +1,4 @@
-const { getComic, getPage, searchComic, getPopular } = require("../lib/komiku");
+const { getComic, getPage, searchComic, getPopular, getList } = require("../lib/komiku");
 
 const handleResponse = (res, status, message, data = []) => {
     res.status(status).json({
@@ -46,6 +46,22 @@ const Chapter = async (req, res) => {
     }
 };
 
+const Filter = async (req, res) => {
+    const { filter } = req.query;
+    console.log(filter)
+    try {
+        const info = await getList(filter);
+        if (info.error) {
+            handleResponse(res, 500, "Failed to get comic list", info.error);
+        } else {
+            handleResponse(res, 200, "Getting comic list", info.data);
+        }
+    } catch (err) {
+        console.error(err);
+        handleResponse(res, 500, "Internal server error");
+    }
+};
+
 const Info = async (req, res) => {
     const { s } = req.params;
     if (!s) {
@@ -80,5 +96,6 @@ module.exports = {
     Chapter,
     Info,
     ping,
-    Popular
+    Popular,
+    Filter
 };
