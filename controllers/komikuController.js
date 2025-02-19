@@ -28,13 +28,13 @@ const Search = async (req, res) => {
 };
 
 const Chapter = async (req, res) => {
-    const { type, s } = req.params;
-    if (!type || !s) {
+    const { s } = req.params;
+    if (!s) {
         return handleResponse(res, 404, "Params wrong");
     }
 
     try {
-        const info = await getPage(type, s);
+        const info = await getPage(s);
         if (info.length > 0) {
             handleResponse(res, 200, "List chapter", info);
         } else {
@@ -63,13 +63,13 @@ const Filter = async (req, res) => {
 };
 
 const Info = async (req, res) => {
-    const { s } = req.params;
-    if (!s) {
+    const {type, s } = req.params;
+    if (!type || !s) {
         return handleResponse(res, 404, "Params wrong");
     }
 
     try {
-        const info = await getComic(s);
+        const info = await getComic(type, s);
         handleResponse(res, 200, "Getting comic page", info);
     } catch (err) {
         console.error(err);

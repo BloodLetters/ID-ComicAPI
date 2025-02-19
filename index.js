@@ -2,14 +2,15 @@ const express = require("express");
 const cors = require('cors');
 
 const { home, notfound, error} = require("./controllers/HandlerController");
-const routes = require("./routes/komikuRoutes");
+const komikuRoutes = require("./routes/komikuRoutes");
+const mangadexRoutes = require("./routes/mangadexRoutes");
 
 const app = express();
 // app.use(cors);
 const port = 3000;
 
 app.use(express.json());
-app.use("/api", routes);
+app.use("/api", [komikuRoutes, mangadexRoutes]);
 app.use("/", home)
 
 app.use(home);
