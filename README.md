@@ -1,42 +1,65 @@
 # ID-ComicAPI
-Indonesian comic rest APi 
+![ID-ComicAPI](https://img.shields.io/badge/Indonesian%20Comic%20API-v1.0-blue)
 
-# Usage
-> **Getting comic list**
-> ```
-> /api/komiku/list
-> /api/komiku/list?filter=manhwa
-> /api/komiku/list?filter=manga
-> /api/komiku/list?filter=manhua
-> ```
+ID-ComicAPI adalah REST API untuk komik Indonesia. API ini dibuat untuk keperluan testing dan edukasi, terutama untuk belajar tentang **Web Scraping**.
 
-> **Search comic**
-> ```
-> /api/komiku/search/:type/:title
-> /api/komiku/search/manga/50kg-cinderella
-> ```
+## Fitur
+API ini menyediakan berbagai endpoint untuk mendapatkan informasi tentang komik:
 
-> **Comic information**
-> ```
-> /api/komiku/info/:type/:title
-> /api/komiku/info/manga/50kg-cinderella
-> ```
+### Mendapatkan Daftar Komik
+```http
+GET /api/komiku/list
+GET /api/komiku/list?filter=manhwa
+GET /api/komiku/list?filter=manga
+GET /api/komiku/list?filter=manhua
+```
 
-> **Comic Chapter**
-> ```
-> /api/komiku/chapter/:title
-> /api/komiku/info/50kg-cinderella-chapter-8
-> ```
+### Mencari Komik
+```http
+GET /api/komiku/search/:type/:title
+GET /api/komiku/search/manga/50kg-cinderella
+```
 
-> **Comic Popular**
-> ```
-> /api/komiku/popular
-> ```
+### Informasi Komik
+```http
+GET /api/komiku/info/:type/:title
+GET /api/komiku/info/manga/50kg-cinderella
+```
 
-> **Rest API Testing**
-> ```
-> /api/komiku/ping
-> ```
+### Bab Komik
+```http
+GET /api/komiku/chapter/:title
+GET /api/komiku/info/50kg-cinderella-chapter-8
+```
 
-# Notes
-This is for testing and education only not for production. this project i made for learning about **Web-Scrapping** and how it works.
+### Komik Populer
+```http
+GET /api/komiku/popular
+```
+
+### Pengujian API
+```http
+GET /api/komiku/ping
+```
+
+## Cara Penggunaan
+1. Clone repository ini:
+    ```sh
+    git clone https://github.com/BloodLetters/ID-ComicAPI.git
+    ```
+2. Install dependencies:
+    ```sh
+    npm install
+    ```
+3. Jalankan server:
+    ```sh
+    npm start
+    ```
+4. Akses API melalui `http://localhost:3000`
+
+## Catatan
+Proyek ini dibuat hanya untuk keperluan testing dan edukasi, tidak untuk produksi.
+
+---
+
+Semoga README yang telah diubah ini lebih menarik dan informatif!
