@@ -7,7 +7,6 @@ const mangadexRoutes = require("./routes/mangadexRoutes");
 
 const app = express();
 // app.use(cors);
-const port = 3000;
 
 app.use(express.json());
 app.use("/api", [komikuRoutes, mangadexRoutes]);
@@ -17,4 +16,7 @@ app.use(home);
 app.use(notfound);
 app.use(error);
 
-app.listen(port, () => console.log(`Server running on port ${port}`));
+export default app;
+
+// const port = 3000;
+// app.listen(port, () => console.log(`Server running on port ${port}`));

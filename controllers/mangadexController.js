@@ -14,12 +14,12 @@ const Info = async (req, res) => {
         return handleResponse(res, 404, "Params not found!");
     }
 
-    const info = await getInfo(type, s);
     try {
+        const info = await getInfo(type, s);
         handleResponse(res, 200, "Getting comic page", info);
     } catch (err) {
         console.error(err);
-        handleResponse(res, 404, "Wrong query usage");
+        handleResponse(res, 404, "Something error just happened. try again later");
     }
     
 };
