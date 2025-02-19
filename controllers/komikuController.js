@@ -1,78 +1,84 @@
-const { getComic, getPage, searchComic } = require("../lib/komiku");
+const { getComic, getPage, searchComic, getPopular } = require("../lib/komiku");
 
-const search = async (req, res) => {
-    const { type, s } = req.query;
+const handleResponse = (res, status, message, data = []) => {
+    res.status(status).json({
+        status,
+        message,
+        data
+    });
+};
+
+const Search = async (req, res) => {
+    const { type, s } = req.params;
+    if (!type || !s) {
+        return handleResponse(res, 404, "Params not found!");
+    }
+
     try {
-        if (type == undefined || s == undefined) {
-            res.json({
-                status: "error",
-                message: "Params wrong"
-            });
+        const searchResults = await searchComic(type, s);
+        if (searchResults.length > 0) {
+            handleResponse(res, 200, "List search comic", searchResults);
         } else {
-            let searchResults = await searchComic(type, s);
-            res.json(searchResults);
+            handleResponse(res, 404, "Not found!");
         }
     } catch (err) {
-        res.json({
-            status: "error",
-            message: "Error in console. contact administrator!"
-        });
-        console.log(err);
+        console.error(err);
+        handleResponse(res, 404, "Error in console. Contact administrator!");
     }
 };
 
-const getChapter = async (req, res) => {
-    const { s } = req.query;
+const Chapter = async (req, res) => {
+    const { type, s } = req.params;
+    if (!type || !s) {
+        return handleResponse(res, 404, "Params wrong");
+    }
+
     try {
-        if (s == undefined) {
-            res.json({
-                status: "error",
-                message: "Params wrong"
-            });
+        const info = await getPage(type, s);
+        if (info.length > 0) {
+            handleResponse(res, 200, "List chapter", info);
         } else {
-            let info = await getPage(s);
-            res.json(info);
+            handleResponse(res, 404, "Not found!");
         }
     } catch (err) {
-        res.json({
-            status: "error",
-            message: "Error in console. contact administrator!"
-        });
-        console.log(err);
+        console.error(err);
+        handleResponse(res, 404, "Error in console. Contact administrator!");
+    }
+};
+
+const Info = async (req, res) => {
+    const { s } = req.params;
+    if (!s) {
+        return handleResponse(res, 404, "Params wrong");
+    }
+
+    try {
+        const info = await getComic(s);
+        handleResponse(res, 200, "Getting comic page", info);
+    } catch (err) {
+        console.error(err);
+        handleResponse(res, 404, "Wrong query usage");
     }
 };
 
 const ping = (req, res) => {
-    res.json({
-        status: "success",
-        message: "Pong!"
-    })
-}
-
-const getInfo = async (req, res) => {
-    const { type, s } = req.query;
-    try {
-        if (type == undefined || s == undefined) {
-            res.json({
-                status: "error",
-                message: "Params wrong"
-            });
-        } else {
-            let info = await getComic(type, s);
-            res.json(info);
-        }
-    } catch (err) {
-        res.json({
-            status: "error",
-            message: "Error in console. contact administrator!"
-        });
-        console.log(err);
-    }
+    handleResponse(res, 200, "Pong!");
 };
 
+const Popular = async(req, res) => {
+    try {
+        const info = await getPopular();
+        handleResponse(res, 200, "Getting comic popular", info);
+    } catch (err) {
+        console.error(err);
+        handleResponse(res, 404, "Error in console. Contact administrator!");
+    }
+}
+
 module.exports = {
-    search,
-    getChapter,
-    getInfo,
-    ping
+    Search,
+    Chapter,
+    Info,
+    ping,
+    Popular
 };
