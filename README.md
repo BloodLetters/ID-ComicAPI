@@ -18,18 +18,27 @@ GET /api/komiku/list?filter=manhua
 ```http
 GET /api/komiku/search/:type/:title
 GET /api/komiku/search/manga/50kg-cinderella
+
+GET /api/mangadex/search/:type/:title
+GET /api/mangadex/search/manga/queen
 ```
 
 ### Informasi Komik
 ```http
 GET /api/komiku/info/:type/:title
 GET /api/komiku/info/manga/50kg-cinderella
+
+GET /api/mangadex/info/:type/:id-komik
+GET /api/mangadex/info/manga/c1e284bc-0436-42fe-b571-fa35a94279ce
 ```
 
-### Bab Komik
+### Chapter Komik
 ```http
 GET /api/komiku/chapter/:title
 GET /api/komiku/chapter/50kg-cinderella-chapter-8
+
+GET /api/mangadex/chapter/:manga-id
+GET /api/mangadex/chapter/2f5c9ab1-2cfc-4db8-a72a-3a6f9f46813e
 ```
 
 ### Komik Populer
