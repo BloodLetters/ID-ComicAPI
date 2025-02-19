@@ -29,7 +29,7 @@ GET /api/komiku/info/manga/50kg-cinderella
 ### Bab Komik
 ```http
 GET /api/komiku/chapter/:title
-GET /api/komiku/info/50kg-cinderella-chapter-8
+GET /api/komiku/chapter/50kg-cinderella-chapter-8
 ```
 
 ### Komik Populer
