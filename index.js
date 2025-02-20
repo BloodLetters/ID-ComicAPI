@@ -4,12 +4,13 @@ const cors = require('cors');
 const { home, notfound, error} = require("./controllers/HandlerController");
 const komikuRoutes = require("./routes/komikuRoutes");
 const mangadexRoutes = require("./routes/mangadexRoutes");
+const komikindoRoutes = require("./routes/komikindoRoutes");
 
 const app = express();
 app.use(cors());
 
 app.use(express.json());
-app.use("/api", [komikuRoutes, mangadexRoutes]);
+app.use("/api", [komikuRoutes, mangadexRoutes, komikindoRoutes]);
 app.use("/", home)
 
 app.use(home);
