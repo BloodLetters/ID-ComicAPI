@@ -1,5 +1,5 @@
 const express = require("express");
-const { Search, Chapter, Info } = require("../controllers/komikindoController");
+const { Search, Chapter, Info, Pong } = require("../controllers/komikindoController");
 
 const router = express.Router();
 

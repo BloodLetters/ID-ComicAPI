@@ -1,4 +1,4 @@
-const { getComic, getChapter, SearchComic } = require('../lib/komikindo');
+const { getComic, getChapter, SearchComic, ping } = require('../lib/komikindo');
 
 const handleResponse = (res, status, message, data = []) => {
     res.status(status).json({

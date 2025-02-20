@@ -17,7 +17,7 @@ app.use(home);
 app.use(notfound);
 app.use(error);
 
-export default app;
+// export default app;
 
-// const port = 3000;
-// app.listen(port, () => console.log(`Server running on port ${port}`));
+const port = 3000;
+app.listen(port, () => console.log(`Server running on port ${port}`));
