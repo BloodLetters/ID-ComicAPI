@@ -21,6 +21,9 @@ GET /api/komiku/search/manga/50kg-cinderella
 
 GET /api/mangadex/search/:type/:title
 GET /api/mangadex/search/manga/queen
+
+GET /api/mangadex/search/:type/:title
+GET /api/komikindo/search/manga/maou
 ```
 
 ### Informasi Komik
@@ -30,6 +33,9 @@ GET /api/komiku/info/manga/50kg-cinderella
 
 GET /api/mangadex/info/:type/:id-komik
 GET /api/mangadex/info/manga/c1e284bc-0436-42fe-b571-fa35a94279ce
+
+GET /api/komiku/info/:type/:title
+GET /api/komikindo/info/manga/azur-lane-queens-orders
 ```
 
 ### Chapter Komik
@@ -39,6 +45,9 @@ GET /api/komiku/chapter/50kg-cinderella-chapter-8
 
 GET /api/mangadex/chapter/:manga-id
 GET /api/mangadex/chapter/2f5c9ab1-2cfc-4db8-a72a-3a6f9f46813e
+
+GET /api/komikindo/chapter/:title
+GET /api/komikindo/chapter/azur-lane-queens-orders-chapter-38
 ```
 
 ### Komik Populer
