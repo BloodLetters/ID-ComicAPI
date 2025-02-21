@@ -1,10 +1,16 @@
-# ID-ComicAPI
-![ID-ComicAPI](https://img.shields.io/badge/Indonesian%20Comic%20API-v1.0-blue)
+<img src="./assets/banner.png"></img>
+![Komic Indonesia](https://img.shields.io/badge/Komik-Indonesia-green?style=flat-square&color=green&labelColor=cray)
+[![GitHub release](https://img.shields.io/github/v/release/BloodLetters/ID-ComicAPI.svg)](https://github.com/BloodLetters/ID-ComicAPI/releases)
+[![GitHub last commit](https://img.shields.io/github/last-commit/BloodLetters/ID-ComicAPI.svg)](https://github.com/BloodLetters/ID-ComicAPI/commits/main)
+![Custom Badge](https://img.shields.io/badge/Status-Active-brightgreen)
 
 ID-ComicAPI adalah REST API untuk komik Indonesia. API ini dibuat untuk keperluan testing dan edukasi, terutama untuk belajar tentang **Web Scraping**.
 
 ## Fitur
 API ini menyediakan berbagai endpoint untuk mendapatkan informasi tentang komik:
+- List chapter
+- Informasi Komik
+- Daftar list komik
 
 ### Mendapatkan Daftar Komik
 ```http
