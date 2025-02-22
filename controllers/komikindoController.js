@@ -40,13 +40,13 @@ const Chapter = async (req, res) => {
 };
 
 const Search = async (req, res) => {
-    const { type, s } = req.params;
+    const { type, s, page } = req.params;
     if (!type || !s) {
         return handleResponse(res, 404, "Params not found!");
     }
 
     try {
-        const searchResults = await SearchComic(type, s);
+        const searchResults = await SearchComic(type, s, page);
         handleResponse(res, 200, "List search comic", searchResults);
     } catch (err) {
         console.error(err);

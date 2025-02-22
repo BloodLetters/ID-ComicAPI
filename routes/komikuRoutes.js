@@ -4,11 +4,13 @@ const { Search, Chapter, ping, Info, Popular, Filter } = require("../controllers
 const router = express.Router();
 
 router.get("/komiku/search/:type/:s", Search);
+router.get("/komiku/search/page/:page/:type/:s", Search)
+
 router.get("/komiku/info/:type/:s", Info);
 
 router.get("/komiku/chapter/:s", Chapter);
 
-// Filter
+// list filter
 router.get("/komiku/list", Filter);
 
 router.get("/komiku/popular", Popular);
