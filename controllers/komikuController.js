@@ -16,10 +16,10 @@ const Search = async (req, res) => {
 
     try {
         const searchResults = await searchComic(type, s);
-        if (searchResults.length > 0) {
+        if(searchResults.results.length > 0) {
             handleResponse(res, 200, "List search comic", searchResults);
         } else {
-            handleResponse(res, 404, "Not found!");
+            handleResponse(res, 404, "Not found")
         }
     } catch (err) {
         console.error(err);
