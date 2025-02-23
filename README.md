@@ -24,12 +24,15 @@ GET /api/komiku/list?filter=manhua
 ```http
 GET /api/komiku/search/:type/:title
 GET /api/komiku/search/manga/50kg-cinderella
+GET /api/komiku/search/page/2/manga/isekai (Selalu menampilkan halaman 1)
 
 GET /api/mangadex/search/:type/:title
 GET /api/mangadex/search/manga/queen
+GET /api/mangadex/search/page/2/manga/isekai (Selalu menampilkan halaman 1)
 
 GET /api/mangadex/search/:type/:title
 GET /api/komikindo/search/manga/maou
+GET /api/komikindo/search/page/2/manga/isekai
 ```
 
 ### Informasi Komik
@@ -79,7 +82,7 @@ GET /api/komiku/ping
     ```sh
     npm start
     ```
-4. Akses API melalui `http://localhost:3000`
+4. Akses API melalui `https://id-comic-api.vercel.app`
 
 ## Catatan
 Proyek ini dibuat hanya untuk keperluan testing dan edukasi, tidak untuk produksi.
