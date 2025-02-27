@@ -30,7 +30,7 @@ GET /api/mangadex/search/:type/:title
 GET /api/mangadex/search/manga/queen
 GET /api/mangadex/search/page/2/manga/isekai (Selalu menampilkan halaman 1)
 
-GET /api/mangadex/search/:type/:title
+GET /api/komikindo/search/:type/:title
 GET /api/komikindo/search/manga/maou
 GET /api/komikindo/search/page/2/manga/isekai
 ```
@@ -43,7 +43,7 @@ GET /api/komiku/info/manga/50kg-cinderella
 GET /api/mangadex/info/:type/:id-komik
 GET /api/mangadex/info/manga/c1e284bc-0436-42fe-b571-fa35a94279ce
 
-GET /api/komiku/info/:type/:title
+GET /api/komikindo/info/:type/:title
 GET /api/komikindo/info/manga/azur-lane-queens-orders
 ```
 
