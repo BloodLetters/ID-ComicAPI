@@ -35,6 +35,12 @@ GET /api/komikindo/search/manga/maou
 GET /api/komikindo/search/page/2/manga/isekai
 ```
 
+### Search by genre
+```http
+GET /api/komiku/search/manga/Queen?genre=Fantasi,Romantis
+GET /api/komiku/search/:type/:title?genre=List_genre
+```
+
 ### Informasi Komik
 ```http
 GET /api/komiku/info/:type/:title
