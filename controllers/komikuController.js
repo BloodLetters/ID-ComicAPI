@@ -10,22 +10,32 @@ const handleResponse = (res, status, message, data = []) => {
 
 const Search = async (req, res) => {
     const { type, s } = req.params;
-    if (!type || !s) {
-        return handleResponse(res, 404, "Params not found!");
-    }
+    let genre = req.query.genre;
+
+    const genreList = Array.isArray(genre)
+        ? genre
+        : genre
+        ? genre.split(',').map(g => g.trim())
+        : [];
+
+    const searchQuery = s || "";
+    console.log(genreList);
 
     try {
-        const searchResults = await searchComic(type, s);
-        if(searchResults.results.length > 0) {
+        const searchResults = await searchComic(type, searchQuery, genreList);
+        if (searchResults.results.length > 0) {
             handleResponse(res, 200, "List search comic", searchResults);
         } else {
-            handleResponse(res, 404, "Not found")
+            handleResponse(res, 404, "Not found");
         }
     } catch (err) {
         console.error(err);
-        handleResponse(res, 404, "Error in console. Contact administrator!");
+        handleResponse(res, 500, "Error in console. Contact administrator!");
     }
 };
+
+
+
 
 const Chapter = async (req, res) => {
     const { s } = req.params;
@@ -48,6 +58,7 @@ const Chapter = async (req, res) => {
 
 const Filter = async (req, res) => {
     const { filter } = req.query;
+    const genre = req.query.genre;
     console.log(filter)
     try {
         const info = await getList(filter);
