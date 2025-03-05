@@ -36,9 +36,16 @@ GET /api/komikindo/search/page/2/manga/isekai
 ```
 
 ### Search by genre
+> NOTE: List genre tiap routes berbeda sesuai dari web nya. untuk sementara belum bisa di handle!
+> akan di handle di next update
 ```http
 GET /api/komiku/search/manga/Queen?genre=Fantasi,Romantis
 GET /api/komiku/search/:type/:title?genre=List_genre
+
+
+
+GET /api/mangadex/search/manga/Isekai?genre=Fantasy,Romance
+GET /api/mangadex/search/:type/:title?genre=List_genre
 ```
 
 ### Informasi Komik

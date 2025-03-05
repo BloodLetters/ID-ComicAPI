@@ -3,7 +3,7 @@ const { Search, Chapter, Info } = require("../controllers/komikindoController");
 
 const router = express.Router();
 
-router.get("/komikindo/search/:type/:s", Search);
+router.get("/komikindo/search/:type/:s?", Search);
 router.get("/komikindo/search/page/:page/:type/:s", Search);
 
 router.get("/komikindo/info/:type/:s", Info);

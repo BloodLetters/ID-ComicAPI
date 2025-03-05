@@ -19,7 +19,6 @@ const Search = async (req, res) => {
         : [];
 
     const searchQuery = s || "";
-    console.log(genreList);
 
     try {
         const searchResults = await searchComic(type, searchQuery, genreList);
@@ -59,7 +58,7 @@ const Chapter = async (req, res) => {
 const Filter = async (req, res) => {
     const { filter } = req.query;
     const genre = req.query.genre;
-    console.log(filter)
+    
     try {
         const info = await getList(filter);
         if (info.error) {

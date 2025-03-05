@@ -41,20 +41,30 @@ const Chapter = async (req, res) => {
 
 const Search = async (req, res) => {
     const { type, s } = req.params;
-    if (!type || !s) {
-        return handleResponse(res, 404, "Params not found!");
-    }
+    let genre = req.query.genre;
+
+    const genreList = Array.isArray(genre)
+    ? genre
+    : genre
+    ? genre.split(',').map(g => g.trim())
+    : [];
+
+    const searchQuery = s || "";
 
     try {
-        const searchResults = await searchManga(type, s);
-        if(searchResults.results.length > 0) {
+        const searchResults = await searchManga(type, searchQuery, genreList);
+        if (searchResults.results.length > 0) {
             handleResponse(res, 200, "List search comic", searchResults);
         } else {
-            handleResponse(res, 404, "Not found")
+            handleResponse(res, 404, "Not found");
         }
     } catch (err) {
-        console.error(err);
-        handleResponse(res, 404, "Error in console. Contact administrator!");
+        if (err.response && err.response.status === 429) {
+            handleResponse(res, 404, "You sent too many requests too quickly. Slow down");
+        } else {
+            console.error(err);
+            handleResponse(res, 404, "Error in console. Contact administrator!");
+        }
     }
 };
 
